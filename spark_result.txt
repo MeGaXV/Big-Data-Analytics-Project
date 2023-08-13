@@ -1,0 +1,82 @@
++------+---------+---------------+---------------------------------+
+|ItemID|Sentiment|SentimentSource|SentimentText                    |
++------+---------+---------------+---------------------------------+
+|1038  |1        |Sentiment140   |that film is fantastic #brilliant|
+|1804  |1        |Sentiment140   |this music is really bad #myband |
+|1693  |0        |Sentiment140   |winter is terrible #thumbs-down  |
++------+---------+---------------+---------------------------------+
+only showing top 3 rows
+
++---------------------------------+-----+
+|SentimentText                    |label|
++---------------------------------+-----+
+|that film is fantastic #brilliant|1    |
+|this music is really bad #myband |1    |
+|winter is terrible #thumbs-down  |0    |
+|this game is awful #nightmare    |0    |
+|I love jam #loveit               |1    |
++---------------------------------+-----+
+only showing top 5 rows
+
+Training data rows: 1358 ; Testing data rows: 574
++----------------------------------+-----+----------------------------------------+
+|SentimentText                     |label|SentimentWords                          |
++----------------------------------+-----+----------------------------------------+
+|I adore cheese #brilliant         |1    |[i, adore, cheese, #brilliant]          |
+|I adore cheese #loveit            |1    |[i, adore, cheese, #loveit]             |
+|I adore classical music #brilliant|1    |[i, adore, classical, music, #brilliant]|
+|I adore classical music #favorite |1    |[i, adore, classical, music, #favorite] |
+|I adore classical music #loveit   |1    |[i, adore, classical, music, #loveit]   |
++----------------------------------+-----+----------------------------------------+
+only showing top 5 rows
+
++----------------------------------+-----+----------------------------------------+-------------------------------------+
+|SentimentText                     |label|SentimentWords                          |MeaningfulWords                      |
++----------------------------------+-----+----------------------------------------+-------------------------------------+
+|I adore cheese #brilliant         |1    |[i, adore, cheese, #brilliant]          |[adore, cheese, #brilliant]          |
+|I adore cheese #loveit            |1    |[i, adore, cheese, #loveit]             |[adore, cheese, #loveit]             |
+|I adore classical music #brilliant|1    |[i, adore, classical, music, #brilliant]|[adore, classical, music, #brilliant]|
+|I adore classical music #favorite |1    |[i, adore, classical, music, #favorite] |[adore, classical, music, #favorite] |
+|I adore classical music #loveit   |1    |[i, adore, classical, music, #loveit]   |[adore, classical, music, #loveit]   |
++----------------------------------+-----+----------------------------------------+-------------------------------------+
+only showing top 5 rows
+
++-----+-------------------------------------+-------------------------------------------------------+
+|label|MeaningfulWords                      |features                                               |
++-----+-------------------------------------+-------------------------------------------------------+
+|1    |[adore, cheese, #brilliant]          |(262144,[1689,45361,100089],[1.0,1.0,1.0])             |
+|1    |[adore, cheese, #loveit]             |(262144,[1689,100089,254974],[1.0,1.0,1.0])            |
+|1    |[adore, classical, music, #brilliant]|(262144,[45361,100089,102383,131250],[1.0,1.0,1.0,1.0])|
++-----+-------------------------------------+-------------------------------------------------------+
+only showing top 3 rows
+
+-----Training is done!
++-----+---------------------------+-------------------------------------------+
+|Label|MeaningfulWords            |features                                   |
++-----+---------------------------+-------------------------------------------+
+|1    |[adore, cheese, #bestever] |(262144,[1689,91011,100089],[1.0,1.0,1.0]) |
+|1    |[adore, cheese, #favorite] |(262144,[1689,100089,108624],[1.0,1.0,1.0])|
+|1    |[adore, cheese, #thumbs-up]|(262144,[1689,88825,100089],[1.0,1.0,1.0]) |
+|1    |[adore, cheese, #toptastic]|(262144,[1689,42010,100089],[1.0,1.0,1.0]) |
++-----+---------------------------+-------------------------------------------+
+only showing top 4 rows
+
++-------------------------------------+----------+-----+
+|MeaningfulWords                      |prediction|Label|
++-------------------------------------+----------+-----+
+|[adore, cheese, #bestever]           |1.0       |1    |
+|[adore, cheese, #favorite]           |1.0       |1    |
+|[adore, cheese, #thumbs-up]          |1.0       |1    |
+|[adore, cheese, #toptastic]          |1.0       |1    |
+|[adore, classical, music, #bestever] |1.0       |1    |
+|[adore, classical, music, #toptastic]|1.0       |1    |
+|[adore, coffee, #brilliant]          |1.0       |1    |
+|[adore, coffee, #favorite]           |1.0       |1    |
+|[adore, coffee, #thumbs-up]          |1.0       |1    |
+|[adore, jam, #loveit]                |1.0       |1    |
++-------------------------------------+----------+-----+
+only showing top 10 rows
+
+correct prediction: 567 , total data: 574 , accuracy: 0.9878048780487805
+Time Taken 0.1496117115020752
+
